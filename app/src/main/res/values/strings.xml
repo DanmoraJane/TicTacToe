@@ -14,4 +14,6 @@
     <string name="pvpBtn">PvP</string>
     <string name="pvcBtn">PvC</string>
     <string name="customMessage">Greetings, %1$s (x) and %2$s (o)!</string>
+    <string name="winPartMessage">%1$s has won!</string>
+    <string name="drawMessage">Draw!</string>
 </resources>

@@ -17,21 +17,20 @@ class AddPlayer : AppCompatActivity() {
         val confirmBtn = findViewById<Button>(R.id.pvpBtn)
         playerTwoName = intent.getStringExtra("PlayerTwoName").toString()
         gameMode = intent.getStringExtra("gameMode").toString()
+        //if gamemode pvc set the second text view un-editable and input "Computer" by default
         if(gameMode == "pvc"){
-            var enterTwo: EditText = findViewById(R.id.enter2)
-            playerTwoName = "Computer"
+            val enterTwo: EditText = findViewById(R.id.enter2)
             enterTwo.setText(playerTwoName)
             enterTwo.setEnabled(false)
         }
-
         confirmBtn.setOnClickListener {
             submitAndStart()
         }
     }
 
     private fun submitAndStart(){
-        var enterOne: EditText = findViewById(R.id.enter1)
-        var enterTwo: EditText = findViewById(R.id.enter2)
+        val enterOne: EditText = findViewById(R.id.enter1)
+        val enterTwo: EditText = findViewById(R.id.enter2)
         val playerOneName = enterOne.text.toString()
         playerTwoName = enterTwo.text.toString()
         val intent = Intent(this, GameAction::class.java)

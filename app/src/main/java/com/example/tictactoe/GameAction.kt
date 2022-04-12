@@ -41,22 +41,25 @@ class GameAction : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.game_action)
+        //get player names from the AddPlayer view
         playerOne = intent.getStringExtra("PlayerOne").toString()
         playerTwo = intent.getStringExtra("PlayerTwo").toString()
+        //get game mode from the ChooseMode view
         gameMode = intent.getStringExtra("gameMode").toString()
+        //setting variables from game restart and main menu buttons
         val restartGame = findViewById<Button>(R.id.restart)
         val mainMenu = findViewById<Button>(R.id.mainMenu)
         winnerText = findViewById(R.id.winnerText)
-        var customMessage = findViewById<TextView>(R.id.customMessage)
-        customMessage.text = getString(R.string.customMessage, playerOne, playerTwo);
-        customMessage.text
+        //setting custom greeting
+        val customMessage = findViewById<TextView>(R.id.customMessage)
+        customMessage.text = getString(R.string.customMessage, playerOne, playerTwo)
+        //adding on click listeners to buttons for game restart and exit to main menu
         restartGame.setOnClickListener {
             restartGame()
         }
         mainMenu.setOnClickListener {
             mainMenu()
         }
-
     }
 
     //function that triggers when a player clicks on the tictactoe board
@@ -77,14 +80,14 @@ class GameAction : AppCompatActivity() {
         updateGameBoard(button, cellID)
     }
 
-    //function that helps computer make it' move
+    //function that helps computer make its move
     private fun computerMove(){
         val currentCell = (0..8).random()
         //check if a random cell is empty or not, if it's not, restart function
         if(boardPositions[currentCell] != -1){
             computerMove()
         }
-        //assign button variable corresponding with clicked cell ID
+        //assign button variable corresponding with clicked button ID
         val buttonSelected : Button = when (currentCell) {
             0 -> findViewById(R.id.button)
             1 -> findViewById(R.id.button2)
@@ -111,7 +114,7 @@ class GameAction : AppCompatActivity() {
             //check if there's a winner
             val isWinner = checkWinner()
             if(isWinner == 0){
-                winnerText.text = playerTwo + " has won!"
+                winnerText.text = getString(R.string.winPartMessage, playerTwo)
             }
             currentPlayer = 1
         }
@@ -132,7 +135,7 @@ class GameAction : AppCompatActivity() {
             //check if it's pvc, if yes, switch player and use computer move function
             //else just switch the player
             if(isWinner == 1){
-                winnerText.text = playerOne + " has won!"
+                winnerText.text = getString(R.string.winPartMessage, playerOne)
             }else if(gameMode == "pvc" && countSpaces < 8){
                 currentPlayer = 0
                 computerMove()
@@ -148,13 +151,13 @@ class GameAction : AppCompatActivity() {
             boardPositions[currentCell] = 0
             val isWinner = checkWinner()
             if(isWinner == 0){
-                winnerText.text = playerTwo + " has won!"
+                winnerText.text = getString(R.string.winPartMessage, playerTwo)
             }
             currentPlayer = 1
         }
         if (gameInProgress && countSpaces == 9) {
             winnerText.visibility = View.VISIBLE
-            winnerText.text = "Draw!"
+            winnerText.text = getString(R.string.drawMessage)
             gameInProgress = false
         }
     }
@@ -182,7 +185,7 @@ class GameAction : AppCompatActivity() {
     //function to disable empty buttons in case there's a winner so no errors occur
     private fun disableEmptyButtons(){
         for (i in 0..8) {
-            var thisButton: Button = when (i) {
+            val thisButton: Button = when (i) {
                 0 -> findViewById(R.id.button)
                 1 -> findViewById(R.id.button2)
                 2 -> findViewById(R.id.button3)
@@ -211,7 +214,7 @@ class GameAction : AppCompatActivity() {
         }
         winnerText.visibility = View.INVISIBLE
         for (i in 0..8) {
-            var thisButton: Button = when (i) {
+            val thisButton: Button = when (i) {
                 0 -> findViewById(R.id.button)
                 1 -> findViewById(R.id.button2)
                 2 -> findViewById(R.id.button3)
