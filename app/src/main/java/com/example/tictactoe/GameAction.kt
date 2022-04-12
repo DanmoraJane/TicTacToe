@@ -7,7 +7,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+//github link: https://github.com/DanmoraJane/TicTacToe
 //idea of how to draw the game board for tictactoe and how to utilize the buttons via code taken from the link below
+//for example, button indexing in functions clickGameBoard, computerMove and disableEmptyButtons
 //https://www.geeksforgeeks.org/how-to-build-a-tic-tac-toe-game-with-both-offline-and-online-mode-in-android/9
 class GameAction : AppCompatActivity() {
 
