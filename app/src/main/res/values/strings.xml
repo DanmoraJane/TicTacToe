@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">TicTacToe</string>
+    <string name="startTitle">Tic Tac Toe</string>
+    <string name="startBtn">Start</string>
+    <string name="confirmBtn">Confirm</string>
+    <string name="setupTitle">Player Names</string>
+    <string name="playerName">Enter Your Name</string>
+    <string name="nameHint">Enter Your Name</string>
+    <string name="label1">PLAYER 1</string>
+    <string name="label2">PLAYER 2</string>
+    <string name="mainMenu">Main menu</string>
+    <string name="restart">Restart</string>
+    <string name="gameModeTitle">Choose the gamemode</string>
+    <string name="pvpBtn">PvP</string>
+    <string name="pvcBtn">PvC</string>
+    <string name="customMessage">Greetings, %1$s (x) and %2$s (o)!</string>
+</resources>
